@@ -1,7 +1,7 @@
 
 #make a baord
 
-#blank comment
+
 #make plarye etci
 EMPTY = ' '
 WHITE_PIECE='w'
