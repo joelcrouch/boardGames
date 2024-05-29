@@ -1,7 +1,4 @@
 
-#make a baord
-
-
 #make plarye etci
 EMPTY = ' '
 WHITE_PIECE='w'
@@ -9,16 +6,6 @@ WHITE_KING= 'W'
 BLACK_PIECE= 'b'
 BLACK_KING='B'
 
-# def create_board():
-#     board=[[EMPTY for _ in range(8)] for _ in range(8)]
-#     for row in range(3):
-#         for col in range(8):
-#             if(row + col) % 2 != 0:
-#                 board[row][col]=WHITE_PIECE
-#     for row in range(5,8):
-#         for col in range(8):
-#             if (row + col) %2 != 0:
-#                 board[row][col]=BLACK_PIECE
 def create_board():
     board = [[EMPTY for _ in range(8)] for _ in range(8)]
     for row in range(3):
@@ -45,12 +32,7 @@ def main():
 if __name__=="__main__":
     main()
 #get list offor valid moves
-
-
 #player_move
-
-
-
 # check for win
 
 
