@@ -1,5 +1,5 @@
 import unittest 
-from checkers import create_board, EMPTY, WHITE_PIECE, BLACK_PIECE
+from checkers import create_board, print_board, get_move_directions, WHITE_PIECE, WHITE_KING, BLACK_PIECE, BLACK_KING, EMPTY
 
 class TestCheckers(unittest.TestCase):
     
@@ -7,8 +7,7 @@ class TestCheckers(unittest.TestCase):
         board=create_board()
         self.assertEqual(len(board), 8)
         self.assertTrue(all(len(row) == 8 for row in board))
-               
-        #test initial position of white pieces
+           
     def test_white_initial_positions(self):
         board=create_board()
         #white pieces
@@ -19,6 +18,7 @@ class TestCheckers(unittest.TestCase):
                 else:
                     self.assertEqual(board[row][col], EMPTY)
         #black pieces
+    
     def test_black_initial_positions(self):
         board = create_board()
         for row in range(5, 8):
@@ -27,13 +27,26 @@ class TestCheckers(unittest.TestCase):
                     self.assertEqual(board[row][col], BLACK_PIECE)
                 else:
                     self.assertEqual(board[row][col], EMPTY)
-    #     #middle pieces
+    
+    
     def test_middle_rows_empty(self):
         board = create_board()
         # Test middle rows are empty
         for row in range(3, 5):
             for col in range(8):
                 self.assertEqual(board[row][col], EMPTY)
+
+    def test_white_piece(self):
+        self.assertEqual(get_move_directions(WHITE_PIECE), [(-1, -1), (-1, 1)])
+
+    def test_black_piece(self):
+        self.assertEqual(get_move_directions(BLACK_PIECE), [(1, -1), (1, 1)])
+    
+    def test_white_king(self):
+        self.assertEqual(get_move_directions(WHITE_KING), [(-1, -1), (-1, 1), (1, -1), (1, 1)])
+
+    def test_black_king(self):
+        self.assertEqual(get_move_directions(BLACK_KING), [(-1, -1), (-1, 1), (1, -1), (1, 1)])
 
 if __name__ == '__main__':
     unittest.main()
